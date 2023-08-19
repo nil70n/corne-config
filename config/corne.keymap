@@ -48,9 +48,9 @@
 // | none |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | none |
 //                    | ESC | LWR | SPC |   | ENT | RSE  | BSP |
                         bindings = <
-   &none &kp Q &kp W &kp E       &kp R        &kp T        &kp Y      &kp U         &kp I       &kp O   &kp P    &none
-   &none &kp A &kp S &mt LCTRL D &mt LSHIFT F &mt LGUI G   &mt RALT H &mt RSHIFT J  &mt RCTRL K &kp L   &kp SEMI &none
-   &none &kp Z &kp X &kp C       &kp V        &kp B        &kp N      &kp M         &kp COMMA   &kp DOT &kp FSLH &none
+   &none &kp Q &kp W       &kp E        &kp R      &kp T   &kp Y      &kp U      &kp I        &kp O       &kp P    &none
+   &none &kp A &mt LCTRL S &mt LSHIFT D &mt LALT F &kp G   &mt RGUI H &mt RALT J &mt RSHIFT K &mt RCTRL L &kp SEMI &none
+   &none &kp Z &kp X       &kp C        &kp V      &kp B   &kp N      &kp M      &kp COMMA    &kp DOT     &kp FSLH &none
                               &kp ESC &mo 1 &kp SPACE   &kp RET &mo 2 &kp BSPC
                         >;
                 };
@@ -61,10 +61,10 @@
 // | none |     |     |     |     | F6  |   | F7  |     |     |     |     | none |
 //                    | ESC |     | SPC |   | ENT |     | DEL |
                         bindings = <
-   &none     &kp N1       &kp N2       &kp N3             &kp N4              &kp N5              &kp N6        &kp N7          &kp N8        &kp N9    &kp N0  &none
-   &none     &kp F1       &kp F2       &mt LCTRL F3       &mt LSHIFT F4       &mt LGUI F5         &mt RALT F8   &mt RSHIFT F9   &mt RCTRL F10 &kp F11   &kp F12 &none
-   &none     &trans       &trans       &trans             &trans              &kp F6              &kp F7        &trans          &trans        &trans    &trans  &none
-                                    &trans  &trans  &trans    &trans  &trans   &trans
+   &none     &kp N1       &kp N2       &kp N3             &kp N4              &kp N5              &kp N6        &kp N7          &kp N8         &kp N9        &kp N0  &none
+   &none     &kp F1       &mt LCTRL F2 &mt LSHIFT F3      &mt LALT F4         &KP F5              &mt RGUI F8   &mt RALT F9     &mt RSHIFT F10 &mt RCTRL F11 &kp F12 &none
+   &none     &trans       &trans       &trans             &trans              &kp F6              &kp F7        &trans          &trans         &trans        &trans  &none
+                                                                   &trans  &trans  &trans    &trans  &trans   &trans
                         >;
                 };
 
@@ -76,7 +76,7 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &none &kp GRAVE    &kp AT       &kp HASH     &kp DLLR     &kp PRCNT      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH &none
-   &none &INS         &PSCRN       &LCTRL       &LSHIFT      &LALT          &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp SQT  &none
+   &none &kp INS      &kp PSCRN    &kp LCTRL    &kp LSHIFT   &kp LALT       &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp SQT  &none
    &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp HOME  &kp PG_DN &kp PG_UP &kp END   &kp RGUI &none
                                                   &trans &trans  &trans   &trans   &trans  &trans
                         >;
