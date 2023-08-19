@@ -62,7 +62,7 @@
 //                    | ESC |     | SPC |   | ENT |     | DEL |
                         bindings = <
    &none     &kp N1       &kp N2       &kp N3             &kp N4              &kp N5              &kp N6        &kp N7          &kp N8         &kp N9        &kp N0  &none
-   &none     &kp F1       &mt LCTRL F2 &mt LSHIFT F3      &mt LALT F4         &KP F5              &mt RGUI F8   &mt RALT F9     &mt RSHIFT F10 &mt RCTRL F11 &kp F12 &none
+   &none     &kp F1       &mt LCTRL F2 &mt LSHIFT F3      &mt LALT F4         &kp F5              &mt RGUI F8   &mt RALT F9     &mt RSHIFT F10 &mt RCTRL F11 &kp F12 &none
    &none     &trans       &trans       &trans             &trans              &kp F6              &kp F7        &trans          &trans         &trans        &trans  &none
                                                                    &trans  &trans  &trans    &trans  &trans   &trans
                         >;
@@ -76,7 +76,7 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &none &kp GRAVE    &kp AT       &kp HASH     &kp DLLR     &kp PRCNT      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH &none
-   &none &kp INS      &kp PSCRN    &kp LCTRL    &kp LSHIFT   &kp LALT       &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp SQT  &none
+   &none &kp INS      &kp LCTRL    &kp LSHIFT   &kp LALT     &kp PSCRN      &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp SQT  &none
    &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp HOME  &kp PG_DN &kp PG_UP &kp END   &kp RGUI &none
                                                   &trans &trans  &trans   &trans   &trans  &trans
                         >;
