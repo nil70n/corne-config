@@ -14,6 +14,15 @@
     flavor = "hold-preferred";
 };
 
+&mt {
+  retro-tap;
+  label = "Mod Tap";
+  #binding-cells = <2>;
+  tapping-term-ms = <180>;
+  flavor = "hold-preferred";
+  bindings = <&kp>, <&kp>;
+};
+
 / {
     combos {
         compatible = "zmk,combos";
