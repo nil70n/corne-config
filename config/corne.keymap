@@ -11,15 +11,15 @@
 // Behavior Overrides
 &lt {
     tapping-term-ms = <200>;
-    flavor = "hold-preferred";
+    flavor = "tap-preferred";
 };
 
 &mt {
   retro-tap;
   label = "Mod Tap";
   #binding-cells = <2>;
-  tapping-term-ms = <180>;
-  flavor = "hold-preferred";
+  tapping-term-ms = <150>;
+  flavor = "tap-preferred";
   bindings = <&kp>, <&kp>;
 };
 
@@ -67,7 +67,7 @@
 // | none |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | none |
 // | none |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | none |
 // | none |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | none |
-//                    | ESC | LWR | SPC |   | ENT | RSE  | BSP |
+//                    | LWR | ESC | SPC |   | ENT | BSP  | RSE |
                         bindings = <
    &none &kp Q &kp W       &kp E        &kp R      &kp T   &kp Y      &kp U      &kp I        &kp O       &kp P    &none
    &none &kp A &mt LCTRL S &mt LSHIFT D &mt LALT F &kp G   &mt RGUI H &mt RALT J &mt RSHIFT K &mt RCTRL L &kp SEMI &none
@@ -80,7 +80,7 @@
 // | none |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | none |
 // | none | F1  | F2  | F3  | F4  | F5  |   | F8  | F9  | F10 | F11 | F12 | none |
 // | none |     |     |     |     | F6  |   | F7  |     |     |     |     | none |
-//                    | ESC |     | SPC |   | ENT |     | DEL |
+//                    | LWR | ESC | SPC |   | ENT | BSP  | RSE |
                         bindings = <
    &none     &kp N1       &kp N2       &kp N3             &kp N4              &kp N5              &kp N6        &kp N7          &kp N8         &kp N9        &kp N0  &none
    &none     &kp F1       &mt LCTRL F2 &mt LSHIFT F3      &mt LALT F4         &kp F5              &mt RGUI F8   &mt RALT F9     &mt RSHIFT F10 &mt RCTRL F11 &kp F12 &none
@@ -94,7 +94,7 @@
 // | none |  `  |  @  |  #  |  $  |  %  |   |  -  |  =  |  [  |  ]  |  \   | none |
 // | none |     |     |     |     |     |   |LEFT |DOWN | UP  |RIGHT|  '   | none |
 // | none |     |     |     |     |     |   |HOME |PG_DN|PG_UP| END | RGUI | none |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+//                    | LWR | ESC | SPC |   | ENT | BSP  | RSE |
                         bindings = <
    &none &kp GRAVE    &kp AT       &kp HASH     &kp DLLR     &kp PRCNT      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH &none
    &none &kp INS      &kp LCTRL    &kp LSHIFT   &kp LALT     &kp PSCRN      &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp SQT  &none
