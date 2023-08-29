@@ -72,7 +72,7 @@
    &none &kp Q &kp W       &kp E        &kp R      &kp T   &kp Y      &kp U      &kp I        &kp O       &kp P    &none
    &none &kp A &mt LCTRL S &mt LSHIFT D &mt LALT F &kp G   &mt RGUI H &mt RALT J &mt RSHIFT K &mt RCTRL L &kp SEMI &none
    &none &kp Z &kp X       &kp C        &kp V      &kp B   &kp N      &kp M      &kp COMMA    &kp DOT     &kp FSLH &none
-                              &tog 1 &kp ESC &kp SPACE   &kp RET &kp BSPC &tog 2
+                              &tog 1 &lt 1 ESC &kp SPACE   &kp RET &lt 2 BSPC &tog 2
                         >;
                 };
                 lower_layer {
