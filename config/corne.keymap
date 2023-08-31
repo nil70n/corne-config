@@ -97,7 +97,7 @@
 //                    | LWR | ESC | SPC |   | ENT | BSP  | RSE |
                         bindings = <
    &none &kp EXCL    &kp AT       &kp HASH     &kp DLLR     &kp PRCNT      &kp CARET &kp AMPS &kp STAR  &kp LPAR  &kp RPAR &none
-   &none &kp MINUS    &mt LCTRL EQUAL    &mt LSHIFT LBKT  &mt LALT RBKT     &kp PSCRN      &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp SQT  &none
+   &none &kp MINUS    &mt LCTRL EQUAL    &mt LSHIFT LBKT  &mt LALT RBKT     &kp PSCRN      &kp LEFT  &mt RALT DOWN  &mt RSHIFT UP &mt RCTRL RIGHT &kp SQT  &none
    &none &kp INS &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp HOME  &kp PG_DN &kp PG_UP &kp END   &kp RGUI &none
                                                   &trans &trans  &trans   &trans   &trans  &trans
                         >;
