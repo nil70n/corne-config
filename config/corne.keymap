@@ -24,6 +24,18 @@
 };
 
 / {
+    macros {
+      alt_f4: alt_f4 {
+          label = "zm_alt_f4";
+          compatible = "zmk,behavior-macro";
+          bindings
+            = <&macro_press &kp RALT>
+            , <&macro_tap &kp F4>
+            , <&macro_release &kp RALT>
+            ;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -86,7 +98,7 @@
                         bindings = <
    &none     &kp N1       &kp N2       &kp N3             &kp N4              &kp N5              &kp N6        &kp N7          &kp N8         &kp N9        &kp N0  &none
    &none     &kp F1       &mt LCTRL F2 &mt LSHIFT F3      &mt LALT F4         &kp F5              &mt RGUI F8   &mt RALT F9     &mt RSHIFT F10 &mt RCTRL F11 &kp F12 &none
-   &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3               &kp F6              &kp F7        &trans          &trans         &trans        &trans  &none
+   &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3               &kp F6              &kp F7        &alt_f4          &trans         &trans        &trans  &none
                                                                    &trans  &trans  &trans    &trans  &trans   &trans
                         >;
                 };
