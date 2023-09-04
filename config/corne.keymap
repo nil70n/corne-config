@@ -57,8 +57,7 @@
             bindings = <&kp GRAVE>;
         };
     };
-};
-/ { 
+    
     macros {
         alt_f4: alt_f4 {
             label = "Send ALT + F4";
@@ -69,8 +68,8 @@
               , <&macro_tap &kp F4>
               , <&macro_release &kp RALT>
             ;
-          };
-      };
+        };
+    };
 };
 
 / {
