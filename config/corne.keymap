@@ -57,19 +57,6 @@
             bindings = <&kp GRAVE>;
         };
     };
-    
-   // macros {
-   //     alt_f4: alt_f4 {
-   //         label = "Send ALT + F4";
-   //         compatible = "zmk,behavior-macro";
-   //         #binding-cells = <31>;
-   //         bindings
-   //           = <&macro_press &kp RALT>
-   //           , <&macro_tap &kp F4>
-   //           , <&macro_release &kp RALT>
-   //         ;
-   //     };
-   // };
 };
 
 / {
@@ -89,7 +76,6 @@
                               &tog 1 &lt 1 ESC &kp SPACE   &kp RET &lt 2 BSPC &tog 2
                         >;
                 };
-
                 lower_layer {
 // -----------------------------------------------------------------------------------------
 // | none |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | none |
