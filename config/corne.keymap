@@ -28,6 +28,7 @@
       alt_f4: alt_f4 {
           label = "zm_alt_f4";
           compatible = "zmk,behavior-macro";
+          #binding-cells = <31>;
           bindings
             = <&macro_press &kp RALT>
             , <&macro_tap &kp F4>
