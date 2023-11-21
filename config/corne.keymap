@@ -4,6 +4,11 @@
  * SPDX-License-Identifier: MIT
  */
 
+ #define HOME 0
+ #define FUNCTIONS 1
+ #define NUMBERS 2
+ #define SETTINGS 3
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
@@ -18,26 +23,89 @@
 &mt {
   retro-tap;
   label = "Mod Tap";
-  #binding-cells = <2>;
   tapping-term-ms = <120>;
   flavor = "tap-preferred";
   bindings = <&kp>, <&kp>;
 };
 
-/ {
-    macros {
-      alt_f4: alt_f4 {
-          label = "zm_alt_f4";
-          compatible = "zmk,behavior-macro";
-          #binding-cells = <0>;
-          bindings
-            = <&macro_press &kp LALT>
-            , <&macro_tap &kp F4>
-            , <&macro_release &kp LALT>
-            ;
-        };
-    };
+behaviors {
+  // Sticky Key
+  skq: sticky_key_quick_release {
+    compatible = "zmk,behavior-sticky-key";
+    label = "STICKY_KEY_QUICK_RELEASE";
+    bindings = <&kp>;
+    release-after-ms = <2000>;
+    quick-release;
+  };
 
+  // Tap-Dance
+  tds: tap_dance_shift {
+    compatible = "zmk,behavior-tap-dance";
+    label = "TAP_DANCE_SHIFT";
+    tapping-term-ms = <120>;
+    bindings = <&skq LSHIFT>, <&sk LSHIFT>;
+  };
+
+  tde: tap_dance_esc {
+    compatible = "zmk,behavior-tap-dance";
+    label = "TAP_DANCE_ESC";
+    tapping-term-ms = <120>;
+    bindings = <&kp ESC>, <&to FUNCTIONS>;
+  };
+
+  tdc: tap_dance_caps {
+    compatible = "zmk,behavior-tap-dance";
+    label = "TAP_DANCE_CAPS";
+    tapping-term-ms = <120>;
+    bindings = <&caps_word>, <&kp CAPS>;
+  };
+
+  tdb: tap_dance_backspace {
+    compatible = "zmk,behavior-tap-dance";
+    label = "TAP_DANCE_BACKSPACE";
+    tapping-term-ms = <120>;
+    bindings = <&kp BSPC>, <&to NUMBERS>;
+  };
+
+  // Mod-Morph
+  escaps: esc_caps {
+    compatible = "zmk,behavior-mod-morph";
+    label = "ESC_CAPS";
+    bindings = <&tde>, <&tdc>;
+    mods = <(MOD_LSFT)>;
+  };
+
+  spacetab: space_tab {
+    compatible = "zmk,behavior-mod-morph";
+    label = "SPACE_TAB";
+    bindings = <&kp SPC>, <&kp TAB>;
+    mods = <(MOD_LSFT)>;
+  };
+
+  retgui: return_gui {
+    compatible = "zmk,behavior-mod-morph";
+    label = "RET_GUI";
+    bindings = <&kp RET>, <&sk RGUI>;
+    mods = <(MOD_LSFT)>;
+  };
+
+  numctrl: number_control {
+    compatible = "zmk,behavior-mod-morph";
+    label = "NUMBER_CONTROL";
+    bindings = <&sl NUMBERS>, <&sk RCTRL>;
+    mods = <(MOD_LSFT)>;
+  };
+
+  bspdel: backspace_delete {
+    compatible = "zmk,behavior-mod-morph";
+    label = "BACKSPACE_DELETE";
+    bindings = <&tdb>, <&kp DELETE>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    keep-mods = <(MOD_RSFT)>;
+  };
+};
+
+/ {
     combos {
         compatible = "zmk,combos";
 
@@ -77,39 +145,40 @@
         keymap {
                 compatible = "zmk,keymap";
 
-                default_layer {
+                home_layer {
 // -----------------------------------------------------------------------------------------
 // | none |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | none |
 // | none |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | none |
 // | none |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | none |
-//                    | LWR | ESC | SPC |   | ENT | BSP  | RSE |
+// | ESC/FUN-WCAPS/CAPS |1LSFT| SPC-TAB |   | ENT-1RGUI |1NUM-1RCTL | BSP/NUM-DEL |
                         bindings = <
-   &none &kp Q &kp W       &kp E        &kp R      &kp T   &kp Y      &kp U      &kp I        &kp O       &kp P    &none
-   &none &kp A &mt LCTRL S &mt LSHIFT D &mt LALT F &kp G   &mt RGUI H &mt LALT J &mt RSHIFT K &mt RCTRL L &kp SEMI &none
-   &none &kp Z &kp X       &kp C        &kp V      &kp B   &kp N      &kp M      &kp COMMA    &kp DOT     &kp FSLH &none
-                              &tog 1 &lt 1 ESC &kp SPACE   &kp RET &lt 2 BSPC &tog 2
+   &none &kp Q &kp W       &kp E        &kp R      &kp T   	&kp Y      &kp U      &kp I        &kp O       &kp P    &none
+   &none &kp A &mt LCTRL S &mt LSHIFT D &mt LALT F &mt LGUI G   &mt RGUI H &mt LALT J &mt RSHIFT K &mt RCTRL L &kp SEMI &none
+   &none &kp Z &kp X       &kp C        &kp V      &kp B   	&kp N      &kp M      &kp COMMA    &kp DOT     &kp FSLH &none
+                           &escaps  &ht_bl LALT &tds  &spacetab	&retgui	   &numctrl   &bspdel
                         >;
                 };
 
-                lower_layer {
+                functions_layer {
+// -----------------------------------------------------------------------------------------
+// | none | F1  | F2  | F3  | F4  | F5  |   | F8  | F9  | F10 | F11 | F12  | none |
+// | none |     |LCTRL|LSHT |LALT | F6  |   | F7  |LALT |RSHT |RCTRL|      | none |
+// | none | PRT | INS |     |     |     |   |HOME |PG_DN|PG_UP| END | RGUI | none |
+//                    | SET |  -  |  -  |   |  -  |  -  | HOM |
+                        bindings = <
+   &none &kp F1     &kp F2    &kp F3     &kp F4   &kp F5  	&kp F8      &kp F9    &kp F10    &kp F11   &kp F12  &none
+   &none &none      &kp LCTRL &kp LSHIFT &kp LALT &kp F6  	&kp F7 	    &kp LALT  &kp RSHIFT &kp RCTRL &none    &none
+   &none &kp PSCRN  &kp INS   &none 	 &none    &none  	&kp HOME    &kp PG_DN &kp PGUP   &kp END   &kp RGUI &none
+                          &to SETTINGS  &trans   &trans        &trans      &trans    &to HOME
+                        >;
+                };
+
+                numbers_layer {
 // -----------------------------------------------------------------------------------------
 // | none |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | none |
-// | none |     |LCTRL|LSHT |LALT | F6  |   | F7  |LALT |RSHT |RCTRL|     | none |
-// | none | F1  | F2  | F3  | F4  | F5  |   | F8  | F9  | F10 | F11 | F12 | none |
-//                    | LWR | ESC | SPC |   | ENT | BSP  | RSE |
-                        bindings = <
-   &none &kp N1     &kp N2    &kp N3     &kp N4   &kp N5  &kp N6      &kp N7   &kp N8     &kp N9    &kp N0  &none
-   &none &kp PSCRN  &kp LCTRL &kp LSHIFT &kp LALT &kp F6  &mt RGUI F7 &kp LALT &kp RSHIFT &kp RCTRL &none   &none
-   &none &kp F1     &kp F2    &kp F3     &kp F4   &kp F5  &kp F8      &kp F9   &kp F10    &kp F11 &kp F12 &none
-                          &trans     &trans   &trans  &trans      &trans   &trans
-                        >;
-                };
-
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// | none |  `  |  @  |  #  |  $  |  %  |   |  -  |  =  |  [  |  ]  |  \   | none |
+// | none |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \   | none |
 // | none |     |     |     |     |     |   |LEFT |DOWN | UP  |RIGHT|  '   | none |
-// | none |     |     |     |     |     |   |HOME |PG_DN|PG_UP| END | RGUI | none |
+// | none |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \   | none |
 //                    | LWR | ESC | SPC |   | ENT | BSP  | RSE |
                         bindings = <
    &none &kp EXCL     &kp AT          &kp HASH        &kp DLLR      &kp PRCNT &kp CARET &kp AMPS      &kp STAR      &kp LPAR        &kp RPAR &none
