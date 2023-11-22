@@ -84,10 +84,10 @@
 // | none |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | none |
 //                    | LWR | ESC | SPC |   | ENT | BSP  | RSE |
                         bindings = <
-   &none &kp Q &kp W       &kp E        &kp R      &kp T   &kp Y      &kp U      &kp I        &kp O       &kp P    &none
-   &none &kp A &mt LCTRL S &mt LSHIFT D &mt LALT F &kp G   &mt RGUI H &mt LALT J &mt RSHIFT K &mt RCTRL L &kp SEMI &none
-   &none &kp Z &kp X       &kp C        &kp V      &kp B   &kp N      &kp M      &kp COMMA    &kp DOT     &kp FSLH &none
-                              &tog 1 &lt 1 ESC &kp SPACE   &kp RET &lt 2 BSPC &tog 2
+   &none &kp Q &kp W       &kp E        &kp R      &kp T        &kp Y      &kp U      &kp I        &kp O       &kp P    &none
+   &none &kp A &mt LCTRL S &mt LSHIFT D &mt LALT F &mt LGUI G   &mt RGUI H &mt LALT J &mt RSHIFT K &mt RCTRL L &kp SEMI &none
+   &none &kp Z &kp X       &kp C        &kp V      &kp B        &kp N      &kp M      &kp COMMA    &kp DOT     &kp FSLH &none
+                              &tog 1 &lt 1 ESC &kp SPACE        &kp RET &lt 2 BSPC &tog 2
                         >;
                 };
 
@@ -98,24 +98,24 @@
 // | none | F1  | F2  | F3  | F4  | F5  |   | F8  | F9  | F10 | F11 | F12 | none |
 //                    | LWR | ESC | SPC |   | ENT | BSP  | RSE |
                         bindings = <
-   &none &kp N1     &kp N2    &kp N3     &kp N4   &kp N5  &kp N6      &kp N7   &kp N8     &kp N9    &kp N0  &none
-   &none &kp PSCRN  &kp LCTRL &kp LSHIFT &kp LALT &kp F6  &mt RGUI F7 &kp LALT &kp RSHIFT &kp RCTRL &none   &none
-   &none &kp F1     &kp F2    &kp F3     &kp F4   &kp F5  &kp F8      &kp F9   &kp F10    &kp F11 &kp F12 &none
-                          &trans     &trans   &trans  &trans      &trans   &trans
+   &none &kp N1     &kp N2    &kp N3     &kp N4   &kp N5       &kp N6      &kp N7   &kp N8     &kp N9    &kp N0  &none
+   &none &kp PSCRN  &kp LCTRL &kp LSHIFT &kp LALT &mt RGUI F6  &mt RGUI F7 &kp LALT &kp RSHIFT &kp RCTRL &none   &none
+   &none &kp F1     &kp F2    &kp F3     &kp F4   &kp F5       &kp F8      &kp F9   &kp F10    &kp F11 &kp F12 &none
+                              &trans     &trans   &trans       &trans      &trans   &trans
                         >;
                 };
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// | none |  `  |  @  |  #  |  $  |  %  |   |  -  |  =  |  [  |  ]  |  \   | none |
-// | none |     |     |     |     |     |   |LEFT |DOWN | UP  |RIGHT|  '   | none |
-// | none |     |     |     |     |     |   |HOME |PG_DN|PG_UP| END | RGUI | none |
-//                    | LWR | ESC | SPC |   | ENT | BSP  | RSE |
+// | none |  !  |  @  |  #  |  $  |  %   |   |  ^  |  &  |  *  |  (  | ) | none |
+// | none |  -  |  =  |  [  |  ]  | RGUI |   |LEFT |DOWN | UP  |RIGHT| ' | none |
+// | none |     |     |     |     |      |   |HOME |PG_DN|PG_UP| END | \ | none |
+//                    | LWR | ESC | SPC  |   | ENT | BSP  | RSE |
                         bindings = <
    &none &kp EXCL     &kp AT          &kp HASH        &kp DLLR      &kp PRCNT &kp CARET &kp AMPS      &kp STAR      &kp LPAR        &kp RPAR &none
-   &none &kp MINUS    &mt LCTRL EQUAL &mt LSHIFT LBKT &mt LALT RBKT &kp BSLH  &kp LEFT  &mt RALT DOWN &mt RSHIFT UP &mt RCTRL RIGHT &kp SQT  &none
-   &none &out OUT_TOG &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &kp INS   &kp HOME  &kp PG_DN     &kp PG_UP     &kp END         &kp RGUI &none
-                                                       &trans &trans  &trans   &trans   &trans  &trans
+   &none &kp MINUS    &mt LCTRL EQUAL &mt LSHIFT LBKT &mt LALT RBKT &kp RGUI  &kp LEFT  &mt RALT DOWN &mt RSHIFT UP &mt RCTRL RIGHT &kp SQT  &none
+   &none &bt BT_NXT   &bt BT_PRV      &bt BT_CLR      &out OUT_TOG  &kp INS   &kp HOME  &kp PG_DN     &kp PG_UP     &kp END         &kp BSLH &none
+                                      &trans          &trans        &trans    &trans    &trans        &trans
                         >;
                 };
         };
