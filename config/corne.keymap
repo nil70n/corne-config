@@ -30,6 +30,7 @@
     // Keyboard
     tss: tap_dance_semi_sqt {
       compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
       tapping-term-ms = <150>;
       bindings = <&kp SEMI>, <&kp SQT>;
     };
@@ -39,6 +40,7 @@
     // Win
     tal1: tap_dance_alt_layer_1 {
       compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
       tapping-term-ms = <150>;
       bindings = <&mt LALT ESC>, <&sk LALT>, <&tog 4>;
     };
@@ -46,6 +48,7 @@
     // Mac
     tcl1: tap_dance_cmd_layer_1 {
       compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
       tapping-term-ms = <150>;
       bindings = <&mt LCMD ESC>, <&sk LCMD>, <&tog 4>;
     };
@@ -54,6 +57,7 @@
     // Left thumb 2
     tsc: tap_dance_shift_capsword {
       compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
       tapping-term-ms = <150>;
       bindings = <&sk LSHIFT>, <&mt LSHIFT CAPS>, <&caps_word>;
     };
@@ -62,6 +66,7 @@
     // Left thumb 3
     tsl2: tap_dance_space_layer2 {
       compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
       tapping-term-ms = <150>;
       bindings = <&lt 2 SPACE>, <&tog 2>;
     };
@@ -71,6 +76,7 @@
     // Win
     tew: tap_dance_enter_win {
       compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
       tapping-term-ms = <150>;
       bindings = <&mt LWIN ENTER>, <&sk RWIN>;
     };
@@ -78,6 +84,7 @@
     // Mac
     tec: tap_dance_enter_cmd {
       compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
       tapping-term-ms = <150>;
       bindings = <&mt RCMD ENTER>, <&sk RCMD>;
     };
@@ -86,6 +93,7 @@
     // Right thumb 2
     tcb: tap_dance_command_backspace {
       compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
       tapping-term-ms = <150>;
       bindings = <&mt LCTRL TAB>, <&sk LCTRL>;
     };
@@ -94,6 +102,7 @@
     // Right thumb 3
     tc3: tap_dance_caps_layer3 {
       compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
       tapping-term-ms = <150>;
       bindings = <&lt 3 BACKSPACE>, <&tog 3>;
     };
@@ -108,6 +117,7 @@
   macros {
     mcd: macro_cedilla {
       compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
       bindings = <&macro_tap &kp SQT &kp C>;
     };
   };
