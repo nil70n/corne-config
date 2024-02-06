@@ -55,7 +55,7 @@
     tsc: tap_dance_shift_capsword {
       compatible = "zmk,behavior-tap-dance";
       tapping-term-ms = <150>;
-      bindings = <&sk LSHIFT>, <&mt LSHIFT &caps_word>
+      bindings = <&sk LSHIFT>, <&mt LSHIFT &caps_word>;
     };
     // -------------------------------------
 
