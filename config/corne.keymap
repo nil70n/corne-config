@@ -109,8 +109,8 @@
     mcd: macro_cedilla {
       compatible = "zmk,behavior-macro";
       bindings = <&macro_tap &kp SQT &kp C>;
-    }
-  }
+    };
+  };
 };
 
 / {
