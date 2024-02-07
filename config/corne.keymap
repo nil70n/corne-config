@@ -90,8 +90,6 @@
  };
 };
 
-};
-
 / {
   keymap {
     compatible = "zmk,keymap";
