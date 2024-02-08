@@ -106,7 +106,7 @@
     number_layer {
       bindings = <
 &none &kp N1    &kp N2    &kp N3    &kp N4   &kp N5      &kp N6   &kp N7    &kp N8    &kp N9    &kp N0           &none
-&none &kp GRAVE &kp MINUS &kp EQUAL &kp LBKT &kp RBKT    &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp PT_C_CEDILLA &none
+&none &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp GRAVE   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp PT_C_CEDILLA &none
 &none &kp CAPS  &kp INS   &kp PSCRN &none    &none       &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp BSLH         &none
                   &sk LALT &mt LSHIFT TAB &sk LCTRL   &sk LWIN &kp DEL &tog 1
       >;
