@@ -70,7 +70,7 @@
         flavor = "tap-preferred";
         tapping-term-ms = <160>;
         quick-tap-ms = <160>;
-        bindings = <&ns>, <&kp BSPC>;
+        bindings = <&ns &kp>;
     };
 
     // Keyboard
@@ -152,7 +152,7 @@
 &none &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I     &kp O   &kp P    &none
 &none &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K     &kp L   &tss     &none
 &none &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp COMMA &kp DOT &kp FSLH &none
-  &sk LALT &t2scw &mt LCTRL SPACE     &mt LWIN RET &htb &t6ns
+  &sk LALT &t2scw &mt LCTRL SPACE     &mt LWIN RET &htb BSPC &t6ns
       >;
     };
 
