@@ -27,6 +27,7 @@
 
 / {
   macros {
+
     lm: macro_layer_modifier {
       compatible = "zmk,behavior-macro-two-param";
       wait-ms = <0>;
@@ -44,6 +45,17 @@
         , <&macro_release &mo MACRO_PLACEHOLDER>
         ;
     };
+
+    ns: macro_number_shift {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings
+        = <&macro_press &mo 1 &kp LSHFT>
+        , <&macro_pause_for_release>
+        , <&macro_release &mo 1 &kp LSHFT>
+        ;
+    };
+
   };
 };
 
@@ -58,7 +70,7 @@
         flavor = "tap-preferred";
         tapping-term-ms = <160>;
         quick-tap-ms = <160>;
-        bindings = <&lm 1 LSHIFT>, <&kp BSPC>;
+        bindings = <&ns>, <&kp BSPC>;
     };
 
     // Keyboard
