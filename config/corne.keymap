@@ -9,6 +9,7 @@
 &mt {
   retro-tap;
   label = "Mod Tap";
+  #binding-cells = <0>;
   tapping-term-ms = <120>;
   flavor = "tap-preferred";
   bindings = <&kp>, <&kp>;
