@@ -35,12 +35,10 @@
       #binding-cells = <1>;
       bindings
         = <&macro_param_1to1>
-        , <&macro_press &mo MACRO_PLACEHOLDER>
-        , <&macro_press &kp LSHIFT>
+        , <&macro_press &mo MACRO_PLACEHOLDER &kp LSHIFT>
         , <&macro_pause_for_release>
-        , <&macro_release &kp LSHIFT>
         , <&macro_param_1to1>
-        , <&macro_release &mo MACRO_PLACEHOLDER>
+        , <&macro_release &mo MACRO_PLACEHOLDER &kp LSHIFT>
         ;
     };
 
