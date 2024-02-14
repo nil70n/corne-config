@@ -28,7 +28,7 @@
 / {
   macros {
 
-    lm: macro_layer_modifier {
+    mls: macro_layer_shift {
       compatible = "zmk,behavior-macro-one-param";
       wait-ms = <0>;
       tap-ms = <0>;
@@ -51,66 +51,38 @@
   behaviors {
 
     // Hold Tap
-    htb: hold_tap_backspace {
+    htls: hold_tap_layer_shift {
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "tap-preferred";
-        tapping-term-ms = <160>;
-        quick-tap-ms = <160>;
-        bindings = <&lm>, <&kp>;
-    };
-
-    htd: hold_tap_tap_dance {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "tap-preferred";
-        tapping-term-ms = <160>;
-        quick-tap-ms = <160>;
-        bindings = <&lt>, <&kp>;
+        tapping-term-ms = <180>;
+        quick-tap-ms = <180>;
+        bindings = <&mls>, <&kp>;
     };
 
     // Keyboard
     tss: tap_dance_semi_sqt {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
-      tapping-term-ms = <160>;
+      tapping-term-ms = <180>;
       bindings = <&kp SEMI>, <&kp SQT>;
     };
     // -------------------------------------
 
     // Left thumb 1
-    // Win
     t1as: tap_dance_alt_settings {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
-      tapping-term-ms = <160>;
+      tapping-term-ms = <180>;
       bindings = <&sk LALT>, <&tog 3>;
     };
 
-    // Mac
-    t1cs: tap_dance_cmd_settigs {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <160>;
-      bindings = <&sk LCMD>, <&tog 3>;
-    };
-    // -------------------------------------
-
     // Left thumb 2
-    t2scw: tap_dance_shift_capsword {
+    t2sc: tap_dance_shift_capsword {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
-      tapping-term-ms = <160>;
+      tapping-term-ms = <180>;
       bindings = <&sk LSHIFT>, <&caps_word>;
-    };
-    // -------------------------------------
-
-    // Right thumb 3
-    t6ns: tap_dance_num_sym {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <160>;
-      bindings = <&tog 1>, <&tog 2>;
     };
     // -------------------------------------
 
@@ -128,6 +100,19 @@
       key-positions = <15 16>;
       bindings = <&kp ESC>;
     };
+
+    combo_layer_1 {
+      timeout-ms = <50>;
+      key-positions = <31 32>;
+      bindings = <&tog 1>;
+    };
+
+    combo_layer_2 {
+      timeout-ms = <50>;
+      key-positions = <33 34>;
+      bindings = <&tog 2>;
+    };
+
  };
 };
 
@@ -139,7 +124,7 @@
 &none &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I     &kp O   &kp P    &none
 &none &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K     &kp L   &tss     &none
 &none &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp COMMA &kp DOT &kp FSLH &none
-  &sk LALT &t2scw &mt LCTRL SPACE     &mt LWIN RET &htb 1 BSPC &t6ns
+  &sk LALT &t2sc &mt LCTRL SPACE     &mt LWIN RET &htls 1 BSPC &lt 1 DEL
       >;
     };
 
@@ -148,7 +133,7 @@
 &none &kp N1    &kp N2    &kp N3    &kp N4   &kp N5      &kp N6   &kp N7    &kp N8    &kp N9    &kp N0           &none
 &none &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp GRAVE   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp PT_C_CEDILLA &none
 &none &kp CAPS  &kp INS   &kp PSCRN &none    &none       &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp BSLH         &none
-                  &sk LALT &mt LSHIFT TAB &sk LCTRL   &sk LWIN &kp DEL &tog 1
+                  &sk LALT &mt LSHIFT TAB &sk LCTRL      &sk LWIN &kp BSPC &kp DEL
       >;
     };
 
@@ -157,7 +142,7 @@
 &none &kp F1 &kp F2 &kp F3 &kp F4  &kp F5    &kp PT_SUPER1      &kp PT_SQUARE &kp PT_CUBE &kp PT_DEG  &kp PT_CRUZEIRO &none
 &none &kp F6 &kp F7 &kp F8 &kp F9  &kp F10   &kp RWIN           &kp RALT      &kp RSHIFT  &kp RCTL    &kp PT_CENT     &none
 &none &none  &none  &none  &kp F11 &kp F12   &kp PT_POUND_SIGN  &kp PT_NOT    &kp PT_SECT &kp PT_ORDM &kp PT_ORDF     &none
-            &t1as &mt LSHIFT TAB &sk LCTRL   &sk LWIN &lt 2 DEL &tog 2
+            &t1as &mt LSHIFT TAB &sk LCTRL   &sk LWIN &kp BSPC &kp DEL
       >;
     };
 
@@ -166,17 +151,8 @@
 &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &out OUT_USB &out OUT_BLE &none &none &none &none
 &none &sys_reset   &none        &none        &none        &none          &none        &none        &none &none &none &none
 &none &none        &none        &none        &none        &none          &none        &none        &none &none &none &none
-                                               &to 4 &to 0 &bt BT_PRV    &bt BT_NXT &bt BT_CLR &tog 3
+                                               &to 0 &none &bt BT_PRV    &bt BT_NXT &bt BT_CLR &tog 3
       >;
-
-    apple_layer {
-      bindings = <
-&none &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I     &kp O   &kp P    &none
-&none &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K     &kp L   &tss     &none
-&none &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp FSLH &none
-    &sk LALT &t2scw &mt LCTRL SPACE   &mt RCMD RET &lt 2 BSPC &tog 3
-      >;
-    };
 
     };
   };
