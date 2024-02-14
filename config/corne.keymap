@@ -93,15 +93,6 @@
     };
     // -------------------------------------
 
-    // Right thumb 2
-    t5snb: tap_dance_shift_number_backspace {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <160>;
-      bindings = <&lm 1 LSHIFT>, <&kp BSPC>;
-    };
-    // -------------------------------------
-
     // Right thumb 3
     t6ns: tap_dance_num_sym {
       compatible = "zmk,behavior-tap-dance";
