@@ -97,8 +97,20 @@
 
     combo_esc {
       timeout-ms = <50>;
-      key-positions = <15 16>;
+      key-positions = <13 14>;
       bindings = <&kp ESC>;
+    };
+
+    combo_tab {
+      timeout-ms = <50>;
+      key-positions = <15 16>;
+      bindings = <&kp TAB>;
+    };
+
+    combo_sqt {
+      timeout-ms = <50>;
+      key-positions = <21 22>;
+      bindings = <&kp SQT>;
     };
 
     combo_layer_1 {
@@ -121,10 +133,10 @@
     compatible = "zmk,keymap";
     default_layer {
       bindings = <
-&none &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I     &kp O   &kp P    &none
-&none &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K     &kp L   &tss     &none
-&none &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp COMMA &kp DOT &kp FSLH &none
-  &sk LALT &t2sc &mt LCTRL SPACE     &mt LWIN RET &htls 1 BSPC &lt 1 DEL
+&none &kp Q &kp W      &kp E        &kp R      &kp T        &kp Y      &kp U      &kp I        &kp O      &kp P    &none
+&none &kp A &mt LCTL S &mt LSHIFT D &mt LALT F &mt LWIN G   &mt RWIN H &mt RALT J &mt RSHIFT K &mt RCTL L &kp SEMI &none
+&none &kp Z &kp X      &kp C        &kp V      &kp B        &kp N      &kp M      &kp COMMA    &kp DOT    &kp FSLH &none
+                     &htls 1 CAPS &t2sc &mt LCTRL SPACE     &mt LWIN RET &htls 1 BSPC &lt 1 DEL
       >;
     };
 
@@ -139,8 +151,8 @@
 
     symbol_layer {
       bindings = <
-&none &kp F1 &kp F2 &kp F3 &kp F4  &kp F5    &kp PT_SUPER1      &kp PT_SQUARE &kp PT_CUBE &kp PT_DEG  &kp PT_CRUZEIRO &none
-&none &kp F6 &kp F7 &kp F8 &kp F9  &kp F10   &kp RWIN           &kp RALT      &kp RSHIFT  &kp RCTL    &kp PT_CENT     &none
+&none &kp F1 &kp F2 &kp F3 &kp F4  &kp F5    &kp F8      &kp F9 &kp F10 &kp F11  &kp F12 &none
+&none &kp F6 &kp F7 &kp F8 &kp F9  &kp F6    &kp F7           &kp RALT      &kp RSHIFT  &kp RCTL    &kp PT_CENT     &none
 &none &none  &none  &none  &kp F11 &kp F12   &kp PT_POUND_SIGN  &kp PT_NOT    &kp PT_SECT &kp PT_ORDM &kp PT_ORDF     &none
             &t1as &mt LSHIFT TAB &sk LCTRL   &sk LWIN &kp BSPC &kp DEL
       >;
