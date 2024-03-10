@@ -1,8 +1,7 @@
-#include <behaviors.dtsi>
+#include <behaviors.dtsi
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-#include "keys_pt_abnt2.h"
 
 // Behavior Overrides
 
@@ -59,23 +58,7 @@
         quick-tap-ms = <180>;
         bindings = <&mls>, <&kp>;
     };
-
-    // Keyboard
-    tss: tap_dance_semi_sqt {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <180>;
-      bindings = <&kp SEMI>, <&kp SQT>;
-    };
     // -------------------------------------
-
-    // Left thumb 1
-    t1as: tap_dance_alt_settings {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <180>;
-      bindings = <&sk LALT>, <&tog 3>;
-    };
 
     // Left thumb 2
     t2sc: tap_dance_shift_capsword {
@@ -83,6 +66,14 @@
       #binding-cells = <0>;
       tapping-term-ms = <180>;
       bindings = <&sk LSHIFT>, <&caps_word>;
+    };
+
+    // Right thumb 3
+    t6dn: tap_dance_delete_number {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <180>;
+      bindings = <&kp DEL>, <&tog 1>;
     };
     // -------------------------------------
 
@@ -95,34 +86,10 @@
   combos {
     compatible = "zmk,combos";
 
-    combo_esc {
-      timeout-ms = <50>;
-      key-positions = <13 14>;
-      bindings = <&kp ESC>;
-    };
-
     combo_tab {
       timeout-ms = <50>;
       key-positions = <15 16>;
       bindings = <&kp TAB>;
-    };
-
-    combo_sqt {
-      timeout-ms = <50>;
-      key-positions = <21 22>;
-      bindings = <&kp SQT>;
-    };
-
-    combo_layer_1 {
-      timeout-ms = <50>;
-      key-positions = <31 32>;
-      bindings = <&tog 1>;
-    };
-
-    combo_layer_2 {
-      timeout-ms = <50>;
-      key-positions = <33 34>;
-      bindings = <&tog 2>;
     };
 
  };
@@ -134,37 +101,29 @@
     default_layer {
       bindings = <
 &none &kp Q &kp W      &kp E        &kp R      &kp T        &kp Y      &kp U      &kp I        &kp O      &kp P    &none
-&none &kp A &mt LCTL S &mt LSHIFT D &mt LALT F &mt LWIN G   &mt RWIN H &mt RALT J &mt RSHIFT K &mt RCTL L &kp SEMI &none
+&none &kp A &mt LCTL S &mt LSHIFT D &mt LGUI F &mt LALT G   &mt RALT H &mt RGUI J &mt RSHIFT K &mt RCTL L &kp SEMI &none
 &none &kp Z &kp X      &kp C        &kp V      &kp B        &kp N      &kp M      &kp COMMA    &kp DOT    &kp FSLH &none
-                     &htls 1 CAPS &t2sc &mt LCTRL SPACE     &mt LWIN RET &htls 1 BSPC &lt 1 DEL
+                       &lt 2 ESC    &t2sc      &kp SPACE    &lt 1 RET  &htls 1 BSPC   &t6dn
       >;
     };
 
     number_layer {
       bindings = <
-&none &kp N1    &kp N2    &kp N3    &kp N4   &kp N5      &kp N6   &kp N7    &kp N8    &kp N9    &kp N0           &none
-&none &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp GRAVE   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp PT_C_CEDILLA &none
-&none &kp CAPS  &kp INS   &kp PSCRN &none    &none       &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp BSLH         &none
-                  &sk LALT &mt LSHIFT TAB &sk LCTRL      &sk LWIN &kp BSPC &kp DEL
+&none &kp N1    &kp N2         &kp N3           &kp N4        &kp N5           &kp N6        &kp N7         &kp N8        &kp N9         &kp N0   &none
+&none &kp MINUS &mt LCTL EQUAL &mt LSHIFT LBKT  &mt LFUI RBKT &mt LALT GRAVE   &mt RALT LEFT &mt RGUI DOWN  &mt RSHIFT UP &mt RCTL RIGHT &kp SQT  &none
+&none &kp CAPS  &none          &kp INS          &kp PSCRN     &none            &kp HOME      &kp PG_DN      &kp PG_UP     &kp END        &kp BSLH &none
+                               &lt 2 ESC        &t2sc         &kp SPACE        &lt 1 RET     &htls 1 BSPC   &t6dn
       >;
     };
 
     symbol_layer {
       bindings = <
-&none &kp F1 &kp F2 &kp F3 &kp F4  &kp F5    &kp F8      &kp F9 &kp F10 &kp F11  &kp F12 &none
-&none &kp F6 &kp F7 &kp F8 &kp F9  &kp F6    &kp F7           &kp RALT      &kp RSHIFT  &kp RCTL    &kp PT_CENT     &none
-&none &none  &none  &none  &kp F11 &kp F12   &kp PT_POUND_SIGN  &kp PT_NOT    &kp PT_SECT &kp PT_ORDM &kp PT_ORDF     &none
-            &t1as &mt LSHIFT TAB &sk LCTRL   &sk LWIN &kp BSPC &kp DEL
+&none &kp F1       &kp F2        &kp F3     &kp F4   &kp F5       &kp F6      &kp F7   &kp F8     &kp F9   &kp F10    &none
+&none &kp F11      &kp LCTL      &kp LSHIFT &kp LGUI &kp LALT     &mt RALT    &kp RGUI &kp RSHIFT &kp RCTL &kp F12    &none
+&none &out OUT_USB &out OUT_BLE  &none      &none    &bt BT_PRV   &bt BT_NXT  &none    &none      &none    &bt BT_CLR &none
+                                 &kp ESC    &t2sc    &kp SPACE    &lt 1 RET   &htls 1 BSPC  &kp DEL
       >;
     };
-
-    settings_layer {
-      bindings = <
-&none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &out OUT_USB &out OUT_BLE &none &none &none &none
-&none &sys_reset   &none        &none        &none        &none          &none        &none        &none &none &none &none
-&none &none        &none        &none        &none        &none          &none        &none        &none &none &none &none
-                                               &to 0 &none &bt BT_PRV    &bt BT_NXT &bt BT_CLR &tog 3
-      >;
 
     };
   };
