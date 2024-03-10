@@ -119,7 +119,7 @@
     symbol_layer {
       bindings = <
 &none &kp F1       &kp F2        &kp F3     &kp F4   &kp F5       &kp F6      &kp F7   &kp F8     &kp F9   &kp F10    &none
-&none &kp F11      &kp LCTL      &kp LSHIFT &kp LGUI &kp LALT     &mt RALT    &kp RGUI &kp RSHIFT &kp RCTL &kp F12    &none
+&none &kp F11      &kp LCTL      &kp LSHIFT &kp LGUI &kp LALT     &kp RALT    &kp RGUI &kp RSHIFT &kp RCTL &kp F12    &none
 &none &out OUT_USB &out OUT_BLE  &none      &none    &bt BT_PRV   &bt BT_NXT  &none    &none      &none    &bt BT_CLR &none
                                  &kp ESC    &t2sc    &kp SPACE    &lt 1 RET   &htls 1 BSPC  &kp DEL
       >;
