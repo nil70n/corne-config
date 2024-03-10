@@ -34,10 +34,10 @@
       #binding-cells = <1>;
       bindings
         = <&macro_param_1to1>
-        , <&macro_press &mo MACRO_PLACEHOLDER &kp LSHIFT>
+        , <&macro_press &mo MACRO_PLACEHOLDER &kp LSHFT>
         , <&macro_pause_for_release>
         , <&macro_param_1to1>
-        , <&macro_release &mo MACRO_PLACEHOLDER &kp LSHIFT>
+        , <&macro_release &mo MACRO_PLACEHOLDER &kp LSHFT>
         ;
     };
 
@@ -65,7 +65,7 @@
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       tapping-term-ms = <180>;
-      bindings = <&sk LSHIFT>, <&caps_word>;
+      bindings = <&sk LSHFT>, <&caps_word>;
     };
 
     // Right thumb 3
@@ -100,27 +100,27 @@
     compatible = "zmk,keymap";
     default_layer {
       bindings = <
-&none &kp Q &kp W      &kp E        &kp R      &kp T        &kp Y      &kp U      &kp I        &kp O      &kp P    &none
-&none &kp A &mt LCTL S &mt LSHIFT D &mt LGUI F &mt LALT G   &mt RALT H &mt RGUI J &mt RSHIFT K &mt RCTL L &kp SEMI &none
-&none &kp Z &kp X      &kp C        &kp V      &kp B        &kp N      &kp M      &kp COMMA    &kp DOT    &kp FSLH &none
-                       &lt 2 ESC    &t2sc      &kp SPACE    &lt 1 RET  &htls 1 BSPC   &t6dn
+&none &kp Q &kp W       &kp E        &kp R      &kp T        &kp Y      &kp U      &kp I        &kp O       &kp P    &none
+&none &kp A &mt LCTRL S &mt LSHFT D  &mt LGUI F &mt LALT G   &mt RALT H &mt RGUI J &mt RSHFT K  &mt RCTRL L &kp SEMI &none
+&none &kp Z &kp X       &kp C        &kp V      &kp B        &kp N      &kp M      &kp COMMA    &kp DOT     &kp FSLH &none
+                        &lt 2 ESC    &t2sc      &kp SPACE    &lt 1 RET  &htls 1 BSPC   &t6dn
       >;
     };
 
     number_layer {
       bindings = <
-&none &kp N1    &kp N2         &kp N3           &kp N4        &kp N5           &kp N6        &kp N7         &kp N8        &kp N9         &kp N0   &none
-&none &kp MINUS &mt LCTL EQUAL &mt LSHIFT LBKT  &mt LGUI RBKT &mt LALT GRAVE   &mt RALT LEFT &mt RGUI DOWN  &mt RSHIFT UP &mt RCTL RIGHT &kp SQT  &none
-&none &kp CAPS  &none          &kp INS          &kp PSCRN     &none            &kp HOME      &kp PG_DN      &kp PG_UP     &kp END        &kp BSLH &none
-                               &lt 2 ESC        &t2sc         &kp SPACE        &lt 1 RET     &htls 1 BSPC   &t6dn
+&none &kp N1    &kp N2          &kp N3           &kp N4        &kp N5           &kp N6        &kp N7         &kp N8       &kp N9          &kp N0   &none
+&none &kp MINUS &mt LCTRL EQUAL &mt LSHFT LBKT   &mt LGUI RBKT &mt LALT GRAVE   &mt RALT LEFT &mt RGUI DOWN  &mt RSHFT UP &mt RCTRL RIGHT &kp SQT  &none
+&none &kp CAPS  &none           &kp INS          &kp PSCRN     &kp K_APP        &kp HOME      &kp PG_DN      &kp PG_UP    &kp END         &kp BSLH &none
+                                &lt 2 ESC        &t2sc         &kp SPACE        &lt 1 RET     &htls 1 BSPC   &t6dn
       >;
     };
 
     symbol_layer {
       bindings = <
-&none &kp F1       &kp F2        &kp F3     &kp F4   &kp F5       &kp F6      &kp F7   &kp F8     &kp F9   &kp F10    &none
-&none &kp F11      &kp LCTL      &kp LSHIFT &kp LGUI &kp LALT     &kp RALT    &kp RGUI &kp RSHIFT &kp RCTL &kp F12    &none
-&none &out OUT_USB &out OUT_BLE  &none      &none    &bt BT_PRV   &bt BT_NXT  &none    &none      &none    &bt BT_CLR &none
+&none &kp F1       &kp F2        &kp F3     &kp F4      &kp F5       &kp F6      &kp F7   &kp F8    &kp F9    &kp F10    &none
+&none &kp F11      &kp LCTRL     &kp LSHFT  &kp LGUI    &kp LALT     &kp RALT    &kp RGUI &kp RSHFT &kp RCTRL &kp F12    &none
+&none &out OUT_USB &out OUT_BLE  &kp K_COPY &kp K_PASTE &bt BT_PRV   &bt BT_NXT  &none    &none     &none     &bt BT_CLR &none
                                  &kp ESC    &t2sc    &kp SPACE    &lt 1 RET   &htls 1 BSPC  &kp DEL
       >;
     };
