@@ -124,6 +124,5 @@
                                  &kp ESC    &t2sc    &kp SPACE    &lt 1 RET   &htls 1 BSPC  &kp DEL
       >;
     };
-
   };
 };
